@@ -18,8 +18,35 @@ export function ProductCard({ imageUrl, price, title, description, sizes }: Prod
   const handleCloseModal = () => setIsModalOpen(false);
   return (
     <>
-      <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
-        <Image src={imageUrl} alt={title} maxWidth="100%" maxHeight="350px" />
+      <Box
+        onClick={e => {
+          alert('clicked');
+          // this onclick should not work
+        }}
+        data-group
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        cursor="pointer"
+      >
+        <Box position={'relative'}>
+          <Image src={imageUrl} alt={title} maxWidth="100%" maxHeight="350px" />
+          <Button
+            colorScheme={'blue'}
+            position={'absolute'}
+            bottom={'10px'}
+            left={'50%'}
+            transform={'translateX(-50%)'}
+            opacity={0}
+            _groupHover={{ opacity: 1 }}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleOpenModal();
+            }}
+          >
+            Quick view
+          </Button>
+        </Box>
 
         <Box p="6">
           <HStack gap={'3'} justifyContent={'space-between'} alignItems="baseline">
@@ -34,10 +61,6 @@ export function ProductCard({ imageUrl, price, title, description, sizes }: Prod
           <Text textAlign={'start'} mt="2" color="gray.500">
             {description}
           </Text>
-
-          <Button onClick={handleOpenModal} size="sm">
-            Quick view
-          </Button>
         </Box>
       </Box>
       <ProductModal
