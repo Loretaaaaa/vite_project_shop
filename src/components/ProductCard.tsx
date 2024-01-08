@@ -1,27 +1,34 @@
-import { Box, Image, Heading, Text, HStack, Button } from '@chakra-ui/react';
+import { Box, Image, Heading, HStack, Button } from '@chakra-ui/react';
 import { useState } from 'react';
 import ProductModal from './ProductModal';
-import { Size } from '../api/Products';
 
 export type ProductType = {
+  id: number;
   title: string;
   description?: string;
-  imageUrl: string;
   price: number;
-  sizes: Size[];
+  images: string[];
 };
 
-export function ProductCard({ imageUrl, price, title, description, sizes }: ProductType) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+// is the same as the type below
+// export interface ProductCardProps extends ProductType {
+//   onClick: () => void;
+// }
+export type ProductCardProps = ProductType & {
+  onClick?: () => void;
+};
 
+export function ProductCard({ id, price, title, description, onClick, images }: ProductCardProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
   return (
     <>
       <Box
-        onClick={e => {
-          alert('clicked');
-          // this onclick should not work
+        onClick={() => {
+          // shrothand for this line
+          // if (onClick) onClick();
+          onClick?.();
         }}
         data-group
         borderWidth="1px"
@@ -30,7 +37,7 @@ export function ProductCard({ imageUrl, price, title, description, sizes }: Prod
         cursor="pointer"
       >
         <Box position={'relative'}>
-          <Image src={imageUrl} alt={title} maxWidth="100%" maxHeight="350px" />
+          <Image src={images[0]} alt={title} maxWidth="100%" maxHeight="350px" />
           <Button
             colorScheme={'blue'}
             position={'absolute'}
@@ -39,7 +46,7 @@ export function ProductCard({ imageUrl, price, title, description, sizes }: Prod
             transform={'translateX(-50%)'}
             opacity={0}
             _groupHover={{ opacity: 1 }}
-            onClick={(e) => {
+            onClick={e => {
               e.stopPropagation();
               handleOpenModal();
             }}
@@ -57,16 +64,12 @@ export function ProductCard({ imageUrl, price, title, description, sizes }: Prod
               ${price}
             </Box>
           </HStack>
-
-          <Text textAlign={'start'} mt="2" color="gray.500">
-            {description}
-          </Text>
         </Box>
       </Box>
       <ProductModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        product={{ title, imageUrl, price, description, sizes }}
+        product={{ id, title, price, description, images }}
       />
     </>
   );

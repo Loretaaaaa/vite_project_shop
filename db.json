@@ -7,7 +7,18 @@
       "imageAlt": "Front of men's Basic Tee in black.",
       "price": 35,
       "color": "Black",
-      "sizes": ["xs", "s", "m", "l", "xl"]
+      "sizes": ["xs", "s", "m", "l", "xl"],
+      "details": "Short-sleeved crew-neck jumper made from stretch-viscose bamboo jersey, an iconic fabric that stands out for its soft, comfortable feel and perfect fit. Personally chosen and worn by  Armani as the perfect complement to numerous looks, a hallmark garment of a sleek and highly versatile elegance.",
+      "additionalDetails": [
+        {
+          "key": "Fabric blend",
+          "value": "100% Cotton"
+        },
+        {
+          "key": "Care",
+          "value": "Machine wash cold. Tumble dry low."
+        }
+      ]
     },
     {
       "id": 2,
@@ -16,7 +27,18 @@
       "imageAlt": "Front of men's Basic Tee in black.",
       "price": 25,
       "color": "Black",
-      "sizes": ["m", "xl"]
+      "sizes": ["m", "xl"],
+      "description": "Short-sleeved crew-neck jumper made from stretch-viscose bamboo jersey, an iconic fabric that stands out for its soft, comfortable feel and perfect fit. Personally chosen and worn by  Armani as the perfect complement to numerous looks, a hallmark garment of a sleek and highly versatile elegance.",
+      "additionalDetails": [
+        {
+          "key": "Fabric blend",
+          "value": "100% Cotton"
+        },
+        {
+          "key": "Care",
+          "value": "Machine wash cold. Tumble dry low."
+        }
+      ]
     },
     {
       "id": 3,
@@ -35,7 +57,18 @@
       "imageSrc": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
       "imageAlt": "Person using a pen to cross a task off a productivity paper card.",
       "price": 15,
-      "color": "Black"
+      "color": "Black",
+      "description": "Short-sleeved crew-neck jumper made from stretch-viscose bamboo jersey, an iconic fabric that stands out for its soft, comfortable feel and perfect fit. Personally chosen and worn by  Armani as the perfect complement to numerous looks, a hallmark garment of a sleek and highly versatile elegance.",
+      "additionalDetails": [
+        {
+          "key": "Fabric blend",
+          "value": "100% Cotton"
+        },
+        {
+          "key": "Care",
+          "value": "Machine wash cold. Tumble dry low."
+        }
+      ]
     },
     {
       "id": 5,

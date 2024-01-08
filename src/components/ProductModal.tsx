@@ -12,11 +12,9 @@ import {
   Text,
   HStack,
   Circle,
-  SimpleGrid,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ProductType } from './ProductCard';
-import { Size } from '../api/Products';
 
 type Props = {
   isOpen: boolean;
@@ -26,15 +24,11 @@ type Props = {
 
 const ProductModal = ({ isOpen, onClose, product }: Props) => {
   const [selectedColor, setSelectedColor] = useState('');
-  const [selectedSize, setSelectedSize] = useState('');
 
   const colors = ['black', 'white', 'red', 'grey'];
 
   const handleColorChange = (color: string) => {
     setSelectedColor(color);
-  };
-  const handleSizeChange = (size: string) => {
-    setSelectedSize(size);
   };
   const handleAddToBag = () => {
     console.log('Added to bag');
@@ -56,7 +50,12 @@ const ProductModal = ({ isOpen, onClose, product }: Props) => {
         <ModalBody>
           <Box display={'flex'} justifyContent={'space-between'}>
             <Box flex={'1 1 0%'} mr={'2'}>
-              <Image src={product.imageUrl} alt={product.title} maxWidth="100%" maxHeight="350px" />
+              <Image
+                src={product.images[0]}
+                alt={product.title}
+                maxWidth="100%"
+                maxHeight="350px"
+              />
             </Box>
             <Box flex={'1 1 0%'} ml={'2'}>
               <Text textAlign={'start'} mt="2" color="gray.500">
@@ -81,7 +80,7 @@ const ProductModal = ({ isOpen, onClose, product }: Props) => {
                   />
                 ))}
               </HStack>
-              <Text fontSize="md" color="gray.600" mb="2">
+              {/* <Text fontSize="md" color="gray.600" mb="2">
                 Size:
               </Text>
               <SimpleGrid columns={3} mt={6} spacing={'10px'}>
@@ -100,7 +99,7 @@ const ProductModal = ({ isOpen, onClose, product }: Props) => {
                     {size.charAt(0).toUpperCase() + size.slice(1)}
                   </Text>
                 ))}
-              </SimpleGrid>
+              </SimpleGrid> */}
             </Box>
           </Box>
         </ModalBody>
