@@ -41,7 +41,7 @@ export function ProductCard({ id, price, title, description, onClick, images }: 
     <>
       <Box
         onClick={() => {
-          // shrothand for this line
+          // shorthand for this line
           // if (onClick) onClick();
           onClick?.();
         }}
@@ -98,7 +98,7 @@ export function ProductCard({ id, price, title, description, onClick, images }: 
         <Box p="6">
           <HStack gap={'3'} justifyContent={'space-between'} alignItems="baseline">
             <Heading overflow={'hidden'} whiteSpace={'nowrap'} textOverflow={'ellipsis'} size="sm">
-              {title}
+              {/* {title} */}
             </Heading>
             <Box as="span" ml="2" color="gray.600" fontSize="sm">
               ${price}
