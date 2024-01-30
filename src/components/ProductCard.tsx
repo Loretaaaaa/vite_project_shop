@@ -27,6 +27,7 @@ export function ProductCard({ id, price, title, description, onClick, images }: 
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   window['buttonRef'] = buttonRef;
+  console.log(buttonRef)
 
   useEffect(() => {
     return () => {
